@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>熬夜进行的活动</title>
+    <!-- 引入 echarts.js -->
+    <script src="js/echarts.min.js"></script>
+</head>
+<body>
+    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+    <div id="main" style="width: 800px;height:400px;"></div>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main'));
+
+        // 指定图表的配置项和数据
+        var  option = {
+			 
+    xAxis: {
+        type: 'category',
+        data: ['学习充电', '照顾家庭', '休闲娱乐', '工作搬砖', '没有特别事情'],
+		
+                },
+			
+    yAxis : 
+           {
+               type : 'value',
+               
+               },
+     
+
+               
+			
+    series: [{
+        data: [41,40,38,35, 16],
+        type: 'line',
+        symbol: 'circle',
+        symbolSize: 20,
+        lineStyle: {
+            color: 'green',
+            width: 4,
+            type: 'dashed'
+        },
+        itemStyle: {
+            borderWidth: 3,
+            borderColor: 'yellow',
+            color: 'red',
+            normal: {label : {show: true}}
+        }
+    }]
+};
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+    </script>
+</body>
+</html>

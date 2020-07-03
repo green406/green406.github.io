@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>熬夜心理占比</title>
+    <!-- 引入 echarts.js -->
+    <script src="js/echarts.min.js"></script>
+</head>
+<body>
+    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+    <div id="main" style="width: 600px;height:400px;"></div>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main'));
+
+        // 指定图表的配置项和数据
+        var option = {
+    //图表的背景色backgroundColor: '#2c343c',
+    
+    //图标的标题
+    /*title: {
+        text: '2019年中国年轻女性熬夜心理类型占比',
+        left: 'center',
+        top: 20,
+        textStyle: {
+            color: 'black'
+        }
+    },*/
+    //鼠标移入的提示
+    tooltip: {
+        trigger: 'item',
+        formatter: '{a} <br/>{b}: {c} ({d}%)'
+    },
+    legend: {
+        orient: 'vertical',
+        left: 10,
+        data: ['习以为常', '在所不惜', '乐在其中', '矛盾补偿', ]
+    },
+    series: [
+        {
+            name: '熬夜现象',
+            type: 'pie',
+            //饼图半径，第一个是内半径，第二个是外半径
+            radius: ['50%', '70%'],
+            avoidLabelOverlap: false,
+            label: {
+                show: false,
+                position: 'center'
+            },
+            emphasis: {
+                label: {
+                    show: true,
+                    fontSize: '30',
+                    fontWeight: 'bold'
+                }
+            },
+            labelLine: {
+                show: false
+            },
+            data: [
+                {value: 382, name: '习以为常'},
+                {value: 156, name: '在所不惜'},
+                {value: 164, name: '矛盾补偿'},
+                {value: 298, name: '乐在其中'},
+                
+            ]
+        }
+    ]
+};
+
+
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+    </script>
+</body>
+</html>
